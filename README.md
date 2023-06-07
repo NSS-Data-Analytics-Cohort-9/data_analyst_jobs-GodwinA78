@@ -33,3 +33,25 @@ You want to understand which jobs requiring SQL are hard to fill. Find the numbe
  - Disregard any postings where the domain is NULL. 
  - Order your results so that the domain with the greatest number of `hard to fill` jobs is at the top. 
   - Which three industries are in the top 4 on this list? How many jobs have been listed for more than 3 weeks for each of the top 4?
+
+SELECT column_name
+FROM information_schema.columns
+WHERE table_name = 'data_analyst_jobs';
+
+
+--Show the average star rating for companies in each state. The output should show the state as `state` and the average rating for the state as `avg_rating`. Which state shows the highest average rating?
+SELECT AVG(star_rating) AS avg_rating, location AS state, company
+FROM data_analyst_jobs
+WHERE star_rating IS NOT NULL
+GROUP BY location, company
+ORDER BY avg_rating DESC
+LIMIT 1;
+
+--Select unique job titles from the data_analyst_jobs table. How many are there?
+SELECT COUNT (DISTINCT title)
+FROM data_analyst_jobs;
+
+--How many unique job titles are there for California companies?
+SELECT COUNT(DISTINCT title)
+FROM data_analyst_jobs
+WHERE location IN ('CA')
