@@ -45,8 +45,6 @@ GROUP BY company
 HAVING SUM(review_count) > 5000
 ORDER BY average_rating DESC;
 
-
-
 SELECT company, AVG(star_rating) AS average_rating
 FROM data_analyst_jobs
 GROUP BY company
@@ -62,5 +60,12 @@ WHERE title LIKE '%analyst%';
 SELECT COUNT(title)
 FROM data_analyst_jobs
 WHERE title LIKE '%analyst%';
+
+--How many different job titles do not contain either the word ‘Analyst’ or the word ‘Analytics’? What word do these positions have in common?
+SELECT Count(title) AS title_count
+FROM data_analyst_jobs
+WHERE title NOT LIKE '%analyst%'
+AND title NOT LIKE '%analytics%';
+
 
 
