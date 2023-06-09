@@ -64,6 +64,7 @@ FROM data_analyst_jobs
 	WHERE UPPER(title) NOT LIKE '%ANALYST%' 
 	AND UPPER(title) NOT LIKE '%ANALYTICS%'
 	
+--BONUS
 --You want to understand which jobs requiring SQL are hard to fill. Find the number of jobs by industry (domain) that require SQL and have been posted longer than 3 weeks. 
 -- - Disregard any postings where the domain is NULL. 
 -- - Order your results so that the domain with the greatest number of `hard to fill` jobs is at the top. 
